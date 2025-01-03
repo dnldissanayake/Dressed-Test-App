@@ -1,0 +1,70 @@
+# Ignore build output and intermediate files
+bin/
+obj/
+*.log
+*.vspscc
+*.vssscc
+.vscode/
+.vs/
+**/TestResults/
+*.user
+*.suo
+
+# ASP.NET specific
+*.dll
+*.exe
+*.pdb
+*.cache
+*.csproj.user
+*.dbmdl
+*.jfm
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+.nuget/
+
+# Entity Framework migrations
+*.designer.cs
+*Migrations/
+
+# Publish output
+appsettings*.json
+appsettings*.Environment.json
+wwwroot/
+out/
+PublishProfiles/
+
+# Rider IDE
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Recycle Bin files
+$RECYCLE.BIN/
+
+# Logs
+*.log
+*.tlog
+*.log
+
+# By JetBrains IDEs
+.idea/
+*.sln.iml
+
+# Rider Local History
+.idea/.idea.local
+
+# Miscellaneous
+*.pidb
+*.resharper
+*.sln.docstates
+
