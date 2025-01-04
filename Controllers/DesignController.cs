@@ -28,5 +28,13 @@ namespace dressed_backend.Controllers
             await _service.AddAsync(createDto);
             return CreatedAtAction(nameof(GetAll), null, new { message = "Design created successfully!" });
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _service.DeleteAsync(id);
+            return Ok(new { message = "Design deleted successfully!" });
+        }
+        
     }
 }

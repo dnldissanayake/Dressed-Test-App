@@ -20,7 +20,10 @@ namespace dressed_backend.Services
             {
                 Id = d.Id,
                 Title = d.Title,
-                Category = d.Category
+                Description = d.Description,
+                Category = d.Category,
+                FileUrl = d.FileUrl
+
             });
         }
 
@@ -28,13 +31,23 @@ namespace dressed_backend.Services
         {
             var design = new Design
             {
-                DesignerId = createDto.DesignerId,
                 Title = createDto.Title,
                 Description = createDto.Description,
                 Category = createDto.Category,
                 FileUrl = createDto.FileUrl
             };
             await _repository.AddAsync(design);
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var design = await _repository.FindAsync(id);
+            if (design == null)
+            {
+                throw new KeyNotFoundException($"Design with ID {id} not found.");
+            }
+
+            await _repository.DeleteAsync(design);
         }
     }
 }
