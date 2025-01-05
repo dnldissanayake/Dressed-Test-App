@@ -49,5 +49,21 @@ namespace dressed_backend.Services
 
             await _repository.DeleteAsync(design);
         }
+
+         public async Task UpdateAsync(int id, UpdateDesignDto updateDto)
+        {
+            var design = await _repository.FindAsync(id);
+            if (design == null)
+            {
+                throw new KeyNotFoundException($"Design with ID {id} not found.");
+            }
+
+            design.Title = updateDto.Title;
+            design.Description = updateDto.Description;
+            design.Category = updateDto.Category;
+            design.FileUrl = updateDto.FileUrl;
+
+            await _repository.UpdateAsync(design);
+        }
     }
 }

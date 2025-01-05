@@ -29,6 +29,13 @@ namespace dressed_backend.Controllers
             return CreatedAtAction(nameof(GetAll), null, new { message = "Design created successfully!" });
         }
 
+         [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateDesignDto updateDto)
+        {
+            await _service.UpdateAsync(id, updateDto);
+            return Ok(new { message = "Design updated successfully!" });
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

@@ -37,5 +37,10 @@ namespace dressed_backend.Repositories
             _context.Designs.Remove(design);
             await _context.SaveChangesAsync();
         }
+         public async Task UpdateAsync(Models.Entities.Design design)
+        {
+            _context.Designs.Update(design);
+            await _context.SaveChangesAsync();
+        }
     }
 }
